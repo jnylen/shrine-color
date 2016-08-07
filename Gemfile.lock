@@ -29,9 +29,6 @@ GEM
     rspec-support (3.5.0)
     shrine (2.2.0)
       down (>= 2.3.5)
-    shrine-memory (0.2.1)
-      down
-      shrine (~> 2.0)
 
 PLATFORMS
   ruby
@@ -41,7 +38,6 @@ DEPENDENCIES
   rake (~> 11.1)
   rspec (~> 3.0)
   shrine-color!
-  shrine-memory
 
 BUNDLED WITH
    1.12.5
