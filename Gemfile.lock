@@ -1,0 +1,47 @@
+PATH
+  remote: .
+  specs:
+    shrine-color (0.1)
+      colorscore (>= 0.0.5)
+      shrine (>= 2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    color (1.8)
+    colorscore (0.0.5)
+      color
+    diff-lcs (1.2.5)
+    down (2.3.6)
+    rake (11.2.2)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.2)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
+    shrine (2.2.0)
+      down (>= 2.3.5)
+    shrine-memory (0.2.1)
+      down
+      shrine (~> 2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.12)
+  rake (~> 11.1)
+  rspec (~> 3.0)
+  shrine-color!
+  shrine-memory
+
+BUNDLED WITH
+   1.12.5
