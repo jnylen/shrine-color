@@ -1,7 +1,7 @@
 Shrine Color
 =================
 
-Get the dominant color of an image using colorscore. This can be used as a background color while an image is loading or search by color.
+Get the dominant color of an image using colorscore (updated version by me). This can be used as a background color while an image is loading or search by color.
 
 This is based on carrierwave-color by Sunny Ripert (sunny).
 

@@ -2,17 +2,17 @@ PATH
   remote: .
   specs:
     shrine-color (0.1)
-      colorscore (>= 0.0.5)
+      jnylen-colorscore (>= 0.1.1)
       shrine (>= 2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     color (1.8)
-    colorscore (0.0.5)
-      color
     diff-lcs (1.2.5)
     down (2.3.6)
+    jnylen-colorscore (0.1.1)
+      color
     rake (11.2.2)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
