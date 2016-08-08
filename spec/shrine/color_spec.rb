@@ -12,4 +12,16 @@ describe Shrine::Plugins::Color do
       expect(@user.avatar.dominant_color).to eq("#48839f")
     end
   end
+
+  describe ":palette_color" do
+    it "extracts palette_color from files with default hexes" do
+      @user.avatar = File.open("spec/fixtures/bora.jpg")
+      expect(@user.avatar.palette_color).to eq("#333399")
+    end
+
+    it "extracts palette_color from files with custom hexes" do
+      @user.avatar = File.open("spec/fixtures/bora.jpg")
+      expect(@user.avatar.palette_color(["#ffffff"])).to eq("#ffffff")
+    end
+  end
 end
