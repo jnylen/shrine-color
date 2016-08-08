@@ -21,7 +21,7 @@ describe Shrine::Plugins::Color do
 
     it "extracts palette_color from files with custom hexes" do
       @user.avatar = File.open("spec/fixtures/bora.jpg")
-      expect(@user.avatar.palette_color(["#ffffff"])).to eq("#ffffff")
+      expect(@user.avatar.palette_color(['ff0000', '00ff00', '0000ff'])).to eq("#0000ff")
     end
   end
 end
