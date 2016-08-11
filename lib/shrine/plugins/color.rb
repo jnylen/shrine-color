@@ -16,25 +16,15 @@ class Shrine
                    "000000", "999999", "cccccc", "ffffff"]
 
         # Returns the most dominant color in HEX in an image.
-        def dominant_color(io)
-          # Get filename
-          if io.respond_to?(:path)
-            filename = io.path
-          end
-
-          histogram = Colorscore::Histogram.new(filename, :colors => 1)
+        def dominant_color(io_path)
+          histogram = Colorscore::Histogram.new(io_path, :colors => 1)
           color = histogram.colors.first
           color && color.html # html = hex
         end
 
         # Matches the dominant color to the closest color in the array provided
-        def palette_color(io, palette_hexes = DEFAULT_PALETTE_HEXES)
-          # Get filename
-          if io.respond_to?(:path)
-            filename = io.path
-          end
-
-          histogram = Colorscore::Histogram.new(filename)
+        def palette_color(io_path, palette_hexes = DEFAULT_PALETTE_HEXES)
+          histogram = Colorscore::Histogram.new(io_path)
           palette = Colorscore::Palette.from_hex(palette_hexes)
 
           histogram_scores = histogram.scores
