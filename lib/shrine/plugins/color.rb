@@ -4,6 +4,10 @@ class Shrine
   module Plugins
     # text text text
     module Color
+      def self.load_dependencies(uploader, *)
+        uploader.plugin :add_metadata
+      end
+
       module InstanceMethods
         DEFAULT_PALETTE_HEXES = ["660000", "990000", "cc0000", "cc3333", "ea4c88", "993399",
                    "663399", "333399", "0066cc", "0099cc", "66cccc", "77cc33",
