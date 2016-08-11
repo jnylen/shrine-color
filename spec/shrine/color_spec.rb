@@ -2,26 +2,29 @@ require 'spec_helper'
 
 describe Shrine::Plugins::Color do
   before do
-    @attacher = attacher { plugin :color }
-    @user = @attacher.record
+    @uploader = uploader { plugin :color }
   end
 
   describe ":dominant_color" do
-    it "extracts dominant_color from files" do
-      @user.avatar = File.open("spec/fixtures/bora.jpg")
-      expect(@user.avatar.dominant_color).to eq("#48839f")
+    it "extracts dominant_color from files via add_metadata" do
+      @uploader.class.add_metadata(:dominant_color) { |io, context| dominant_color(io.path) }
+      uploaded_file = @uploader.upload(File.open("spec/fixtures/bora.jpg"))
+      expect(uploaded_file.metadata.fetch("dominant_color")).to eq("#48839f")
     end
   end
 
   describe ":palette_color" do
-    it "extracts palette_color from files with default hexes" do
-      @user.avatar = File.open("spec/fixtures/bora.jpg")
-      expect(@user.avatar.palette_color).to eq("#333399")
+    it "extracts palette_color from files with default hexes via add_metadata" do
+      @uploader.class.add_metadata(:palette_color) { |io, context| palette_color(io.path) }
+      uploaded_file = @uploader.upload(File.open("spec/fixtures/bora.jpg"))
+      expect(uploaded_file.metadata.fetch("palette_color")).to eq("#333399")
     end
 
-    it "extracts palette_color from files with custom hexes" do
-      @user.avatar = File.open("spec/fixtures/bora.jpg")
-      expect(@user.avatar.palette_color(['ff0000', '00ff00', '0000ff'])).to eq("#0000ff")
+    it "extracts palette_color from files with custom hexes via add_metadata" do
+      @uploader.class.add_metadata(:palette_color) { |io, context| palette_color(io.path, ['ff0000', '00ff00', '0000ff']) }
+      uploaded_file = @uploader.upload(File.open("spec/fixtures/bora.jpg"))
+      expect(uploaded_file.metadata.fetch("palette_color")).to eq("#0000ff")
     end
   end
+
 end
