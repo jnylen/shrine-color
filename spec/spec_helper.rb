@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'shrine'
+require 'shrine/plugins/add_metadata'
 require 'shrine/plugins/color'
 require 'shrine/storage/file_system'
 

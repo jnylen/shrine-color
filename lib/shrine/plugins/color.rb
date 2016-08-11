@@ -4,15 +4,15 @@ class Shrine
   module Plugins
     # text text text
     module Color
-
-      module FileMethods
+      module InstanceMethods
         DEFAULT_PALETTE_HEXES = ["660000", "990000", "cc0000", "cc3333", "ea4c88", "993399",
                    "663399", "333399", "0066cc", "0099cc", "66cccc", "77cc33",
                    "669900", "336600", "666600", "999900", "cccc33", "ffff00",
                    "ffcc33", "ff9900", "ff6600", "cc6633", "996633", "663300",
                    "000000", "999999", "cccccc", "ffffff"]
 
-        def dominant_color
+        # Returns the most dominant color in HEX in an image.
+        def dominant_color(io)
           # Get filename
           if io.respond_to?(:path)
             filename = io.path
@@ -23,8 +23,8 @@ class Shrine
           color && color.html # html = hex
         end
 
-        # TO DO
-        def palette_color(palette_hexes = DEFAULT_PALETTE_HEXES)
+        # Matches the dominant color to the closest color in the array provided
+        def palette_color(io, palette_hexes = DEFAULT_PALETTE_HEXES)
           # Get filename
           if io.respond_to?(:path)
             filename = io.path
