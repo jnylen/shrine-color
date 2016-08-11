@@ -40,20 +40,11 @@ class ImageUploader < Shrine
 
   # dominant color
   add_metadata :dominant_color do |io, context|
-    if context[:version] == :small
-      dominant_color(io.path)
-    end
+    dominant_color(io.path)
   end
 
-  # palette color
+  # palette color with version and own array of colors.
   add_metadata :palette_color do |io, context|
-    if context[:version] == :small
-      palette_color(io.path)
-    end
-  end
-
-  # palette color with your own array of colors
-  add_metadata :palette_color2 do |io, context|
     if context[:version] == :small
       palette_color(io.path, ['ff0000', '00ff00', '0000ff'])
     end
@@ -67,9 +58,4 @@ You can now use the code below to get a color:
 photo.image[:small].metadata["dominant_color"]
 # or
 photo.image[:small].dominant_color
-
-## Palette color (palette_color or palette_color2)
-photo.image[:small].metadata["palette_color"]
-# or
-photo.image[:small].palette_color
 ```
