@@ -33,9 +33,43 @@ Add the plugin to your uploader
 In your uploader, include the module and call the processor:
 
 ```ruby
-class AlbumUploader < Shrine
+class ImageUploader < Shrine
+  # plugin add_metadata should be loaded automagically.
+  # otherwise add it here
   plugin :color
+
+  # dominant color
+  add_metadata :dominant_color do |io, context|
+    if context[:version] == :small
+      dominant_color(io.path)
+    end
+  end
+
+  # palette color
+  add_metadata :palette_color do |io, context|
+    if context[:version] == :small
+      palette_color(io.path)
+    end
+  end
+
+  # palette color with your own array of colors
+  add_metadata :palette_color2 do |io, context|
+    if context[:version] == :small
+      palette_color(io.path, ['ff0000', '00ff00', '0000ff'])
+    end
+  end
 end
 ```
 
-You can now use <image>.dominant_color to grab the dominant color.
+You can now use the code below to get a color:
+```ruby
+## Dominant color
+photo.image[:small].metadata["dominant_color"]
+# or
+photo.image[:small].dominant_color
+
+## Palette color (palette_color or palette_color2)
+photo.image[:small].metadata["palette_color"]
+# or
+photo.image[:small].palette_color
+```
