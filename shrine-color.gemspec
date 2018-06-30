@@ -14,8 +14,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0")
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "shrine", ">= 2.0"
-  spec.add_dependency "jnylen-colorscore", ">= 0.1.3"
+  spec.add_dependency "shrine", "~> 2.0"
+  spec.add_dependency "jnylen-colorscore", "~> 0.1", ">= 0.1.3"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 11.1"
