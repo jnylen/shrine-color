@@ -43,10 +43,10 @@ class ImageUploader < Shrine
     dominant_color(io.path)
   end
 
-  # palette color with version and own array of colors.
+  # palette color with version, color count and own array of colors.
   add_metadata :palette_color do |io, context|
     if context[:version] == :small
-      palette_color(io.path, ['ff0000', '00ff00', '0000ff'])
+      palette_color(io.path, 3, ['ff0000', '00ff00', '0000ff'])
     end
   end
 end

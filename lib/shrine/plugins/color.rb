@@ -23,7 +23,7 @@ class Shrine
         end
 
         # Matches the dominant color to the closest color in the array provided
-        def palette_color(io_path, palette_hexes = DEFAULT_PALETTE_HEXES)
+        def palette_color(io_path, color_count = 1, palette_hexes = DEFAULT_PALETTE_HEXES)
           histogram = Colorscore::Histogram.new(io_path)
           palette = Colorscore::Palette.from_hex(palette_hexes)
 
@@ -31,8 +31,7 @@ class Shrine
           return nil if histogram_scores.first.last.nil?
 
           scores = palette.scores(histogram_scores, 1)
-          _score, color = scores.first
-          color.html
+          scores.first(color_count).map { |_score, color| color.html}
         end
 
       end
