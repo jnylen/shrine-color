@@ -5,6 +5,8 @@ Get the dominant color of an image using colorscore (updated version by me). Thi
 
 This is based on carrierwave-color by Sunny Ripert (sunny).
 
+NOTE: The palettes/dominiant_color grabbed from images may differ between imagemagick versions.
+
 Requirements
 ------------
 
