@@ -12,7 +12,7 @@ describe Shrine::Plugins::Color do
     it "extracts dominant_color from files via add_metadata" do
       @uploader.class.add_metadata(:dominant_color) { |io, context| dominant_color(io.path) }
       uploaded_file = @uploader.upload(File.open("spec/fixtures/bora.jpg"))
-      expect(uploaded_file.metadata.fetch("dominant_color")).to eq("#48839f")
+      expect(uploaded_file.metadata.fetch("dominant_color")).to eq("#5c97a7")
     end
   end
 
@@ -32,7 +32,7 @@ describe Shrine::Plugins::Color do
     it "extracts 3 palette_colors from files with default hexes via add_metadata" do
       @uploader.class.add_metadata(:palette_color) { |io, context| palette_color(io.path, 3) }
       uploaded_file = @uploader.upload(File.open("spec/fixtures/bora.jpg"))
-      expect(uploaded_file.metadata.fetch("palette_color")).to eq(["#333399", "#0066cc", "#663399"])
+      expect(uploaded_file.metadata.fetch("palette_color")).to eq(["#333399", "#0066cc", "#66cccc"])
     end
 
     it "extracts 3 palette_colors from files with custom hexes via add_metadata" do
