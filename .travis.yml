@@ -8,7 +8,8 @@ rvm:
 before_install:
   - wget http://ftp.acc.umu.se/mirror/imagemagick.org/ftp/releases/ImageMagick-7.0.8-68.tar.gz -O ImageMagick.tar.gz
   - tar -xf ImageMagick.tar.gz
-  - cd ImageMagick*
+  - ls ImageMagick*
+  - cd ImageMagick
   - ./configure --prefix=/usr
   - make
   - sudo make install
