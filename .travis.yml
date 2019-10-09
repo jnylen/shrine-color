@@ -1,9 +1,17 @@
+dist: bionic
 language: ruby
 rvm:
-  - 2.7
   - 2.6
   - 2.5
   - 2.4
   - 2.3
+before_install:
+  - wget http://ftp.acc.umu.se/mirror/imagemagick.org/ftp/releases/ImageMagick-7.0.8-68.tar.gz -O ImageMagick.tar.gz
+  - tar -xf ImageMagick.tar.gz
+  - cd ImageMagick*
+  - ./configure --prefix=/usr
+  - make
+  - sudo make install
+  - cd ..
 before_script:
   - convert -version
