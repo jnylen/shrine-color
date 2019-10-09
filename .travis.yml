@@ -9,7 +9,7 @@ before_install:
   - wget http://ftp.acc.umu.se/mirror/imagemagick.org/ftp/releases/ImageMagick-7.0.8-68.tar.gz -O ImageMagick.tar.gz
   - tar -xf ImageMagick.tar.gz
   - ls ImageMagick*
-  - cd ImageMagick
+  - cd ImageMagick-7.0.8-68
   - ./configure --prefix=/usr
   - make
   - sudo make install
