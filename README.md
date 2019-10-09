@@ -1,21 +1,17 @@
-Shrine Color
-=================
+# Shrine Color
 
 Get the dominant color of an image using colorscore (updated version by me). This can be used as a background color while an image is loading or search by color.
 
 This is based on carrierwave-color by Sunny Ripert (sunny).
 
-NOTE: The palettes/dominiant_color grabbed from images may differ between imagemagick versions.
+**NOTE: The palettes/dominiant_color grabbed from images may differ between imagemagick versions.**
 
-Requirements
-------------
+## Requirements
 
 This gem requires imagemagick (convert) and grabs colors via a command line.
 So mini_magick, etc. isn't required.
 
-
-Installation
-------------
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -29,8 +25,7 @@ And then call:
 $ bundle
 ```
 
-Add the plugin to your uploader
---------------------------------
+## Add the plugin to your uploader
 
 In your uploader, include the module and call the processor:
 
@@ -55,6 +50,7 @@ end
 ```
 
 You can now use the code below to get a color:
+
 ```ruby
 ## Dominant color
 photo.image[:small].metadata["dominant_color"]

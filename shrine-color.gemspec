@@ -3,9 +3,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "shrine-color"
-  spec.version       = "0.3.0"
+  spec.version       = "0.3.1"
   spec.authors       = ["Joakim Nylen"]
-  spec.email         = ["me@jnylen.nu"]
+  spec.email         = ["rubygems@joakim.nylen.nu"]
   spec.summary       = "Return the dominant color of an image in Shrine."
   spec.description   = "Return the dominant color of an image in Shrine."
   spec.homepage      = "https://github.com/jnylen/shrine-color"
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0")
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "shrine", "~> 2.0"
+  spec.add_dependency "shrine", ">= 2.0", "<= 4.0"
   spec.add_dependency "jnylen-colorscore", "~> 0.1", ">= 0.1.3"
 
   spec.add_development_dependency "bundler", "~> 1.12"
