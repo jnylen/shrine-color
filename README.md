@@ -6,6 +6,8 @@ This is based on carrierwave-color by Sunny Ripert (sunny).
 
 **NOTE: The palettes/dominiant_color grabbed from images may differ between imagemagick versions.**
 
+**Current version of imagemagick the test runs towards: 7.0.8-68**
+
 ## Requirements
 
 This gem requires imagemagick (convert) and grabs colors via a command line.
